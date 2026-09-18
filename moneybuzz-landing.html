@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MONEYBUZZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #0c4a6e 0%, #0369a1 35%, #0e7490 65%, #164e63 100%);
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 16px 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.4;
+      z-index: 0;
+      pointer-events: none;
+    }
+    body::before {
+      width: 300px;
+      height: 300px;
+      background: #22d3ee;
+      top: -70px;
+      left: -50px;
+    }
+    body::after {
+      width: 260px;
+      height: 260px;
+      background: #38bdf8;
+      bottom: 60px;
+      right: -50px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 440px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(26px, 7vw, 34px);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b, #fcd34d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: #a5f3fc;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .timer {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 10px 0 18px;
+      color: #fbbf24;
+      text-shadow: 0 0 20px rgba(251, 191, 36, 0.55);
+    }
+
+    .logo-wrap {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 6px auto 22px;
+      background: linear-gradient(145deg, #f59e0b, #fbbf24, #fcd34d);
+      box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.18),
+        0 0 45px rgba(251, 191, 36, 0.55),
+        0 10px 30px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      padding: 6px;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .subs {
+      font-size: 14px;
+      color: #e0f2fe;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .check-text {
+      font-size: 13px;
+      color: #a5f3fc;
+      margin-bottom: 22px;
+    }
+
+    .view-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #0c4a6e;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 14px 48px;
+      border-radius: 50px;
+      box-shadow: 0 8px 28px rgba(251, 191, 36, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-transform: uppercase;
+    }
+    .view-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(251, 191, 36, 0.55);
+    }
+
+    .footer-text {
+      margin-top: 22px;
+      font-size: 13px;
+      color: #a5f3fc;
+      font-weight: 500;
+    }
+
+    .credit {
+      font-size: 12px;
+      color: #94a3b8;
+      margin: 18px 0 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .credit a {
+      color: #67e8f9;
+      text-decoration: none;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 12px;
+      line-height: 1.5;
+      padding: 0 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 12px;
+      padding-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-links a {
+      color: #67e8f9;
+      text-decoration: none;
+    }
+    .footer-links span {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>BUZZCLUB</h1>
+
+    <p class="tagline">✨ Secure • Fast • Seamless ✨</p>
+
+    <div class="timer">
+      <span id="countdown">5</span> SECONDS
+    </div>
+
+    <div class="logo-wrap">
+      <svg viewBox="0 0 200 200" width="138" height="138" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BuzzClub Logo">
+        <defs>
+          <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fcd34d"/>
+            <stop offset="50%" stop-color="#fbbf24"/>
+            <stop offset="100%" stop-color="#f59e0b"/>
+          </linearGradient>
+        </defs>
+        <!-- outer ring -->
+        <circle cx="100" cy="100" r="96" fill="url(#gold)"/>
+        <circle cx="100" cy="100" r="88" fill="#0c4a6e"/>
+        <!-- honeycomb hint -->
+        <g opacity="0.2" fill="#fbbf24">
+          <polygon points="100,42 112,50 112,66 100,74 88,66 88,50"/>
+          <polygon points="70,58 82,66 82,82 70,90 58,82 58,66"/>
+          <polygon points="130,58 142,66 142,82 130,90 118,82 118,66"/>
+        </g>
+        <!-- bee body -->
+        <ellipse cx="100" cy="92" rx="22" ry="28" fill="url(#gold)"/>
+        <rect x="88" y="78" width="24" height="5" rx="1" fill="#111"/>
+        <rect x="88" y="88" width="24" height="5" rx="1" fill="#111"/>
+        <rect x="88" y="98" width="24" height="5" rx="1" fill="#111"/>
+        <!-- head -->
+        <circle cx="100" cy="62" r="14" fill="url(#gold)"/>
+        <circle cx="94" cy="60" r="3" fill="#111"/>
+        <circle cx="106" cy="60" r="3" fill="#111"/>
+        <!-- wings -->
+        <ellipse cx="72" cy="85" rx="18" ry="10" fill="#e0f2fe" opacity="0.9" transform="rotate(-25 72 85)"/>
+        <ellipse cx="128" cy="85" rx="18" ry="10" fill="#e0f2fe" opacity="0.9" transform="rotate(25 128 85)"/>
+        <!-- text BUZZCLUB -->
+        <text x="100" y="155" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="18" font-weight="800" fill="#fbbf24" letter-spacing="1.5">BUZZCLUB</text>
+      </svg>
+    </div>
+
+    <p class="subs">Thousands of users already joined</p>
+    <p class="check-text">✅ Quick signup • Instant access</p>
+
+    <a href="https://wa.link/promotionclub2" class="view-btn" id="ctaBtn" target="_blank" rel="noopener">GET STARTED</a>
+
+    <p class="footer-text">💎 Precision. Power. Passion 🌍 – Join Now</p>
+  </main>
+
+  <div class="credit">
+    Ads Managed by <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank" rel="noopener">
+    <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank" rel="noopener">@nexgroww</a>
+  </div>
+
+  <section class="disclaimer">
+    <strong>Disclaimer:</strong> For educational purposes only. Trading and investing in financial markets involves risk, including possible loss of capital. Past performance is not indicative of future results. This is not financial advice.
+  </section>
+
+  <div class="footer-links">
+    <a href="https://wa.link/promotionclub2" target="_blank" rel="noopener">Privacy Policy</a>
+    <span>|</span>
+    <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank" rel="noopener">Contact Us</a>
+  </div>
+
+  <script>
+    let countdown = 5;
+    const el = document.getElementById("countdown");
+    // Change this to your real signup / destination URL
+    const link = "https://wa.link/promotionclub2";
+
+    function updateTimer() {
+      el.innerText = countdown;
+      if (countdown <= 0) {
+        clearInterval(timer);
+        if (link && link !== "#") {
+          window.location.href = link;
+        }
+        return;
+      }
+      countdown--;
+    }
+
+    updateTimer();
+    const timer = setInterval(updateTimer, 1000);
+
+    // CTA opens WhatsApp promotion link
+
+  </script>
+</body>
+</html>
